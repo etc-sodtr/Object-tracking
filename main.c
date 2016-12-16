@@ -6,19 +6,15 @@
  */ 
 
 #include <avr/io.h>
-
-void USART_Init( unsigned int ubrr );
-void USART_Transmit( unsigned char data );
-unsigned char USART_Receive( void );
-
+#include <stdlib.h>
+#include <string.h>
+#include "FreeRTOSConfig.h"
+#include "myfunctions.h"
 int main(void)
 {
-   		/* to do: 
-			initializare taskuri
-		    generare pwm pe baza datelor primite
-			sincronizare taskuri 
-			 */ 
-		   
+	xTaskCreate(vPWMtask,"oTracking",configMINIMAL_STACK_SIZE,NULL,1,NULL);
+	vTaskStartScheduler();
+	return 0;
 		   
 }
 
