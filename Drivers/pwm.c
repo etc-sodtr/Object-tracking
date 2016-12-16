@@ -5,7 +5,10 @@
  *  Author: bogdan.slujitoru
  */ 
 #include <avr/io.h>
+#include "myfunctions.h"
+
 void PWMinit(){
+	DDRB = 0b11111111;
 	/*initialziare counter */
 	TCNT1 = 0;
 	/*Fast PWM , 64 prescaler, */
